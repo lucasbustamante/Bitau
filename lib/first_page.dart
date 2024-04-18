@@ -1,4 +1,4 @@
-import 'package:bitau/downWidget.dart';
+import 'package:bitau/widgets/downWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -185,7 +185,7 @@ class _FirstPageState extends State<FirstPage> {
                 ),
               ),
               SizedBox(height: 20),
-              DownWidget()
+              DownWidget(container: false)
             ],
           ),
         ),
