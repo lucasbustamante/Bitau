@@ -1,14 +1,9 @@
-// Importações necessárias para o código
 import 'dart:async';
 import 'package:bitau/BLE/ble_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:get/get.dart';
 
-
-// Controller para a funcionalidade BLE (Bluetooth Low Energy)
-
-// Página para exibir a varredura BLE
 class ScanPage extends StatefulWidget {
   const ScanPage({Key? key}) : super(key: key);
 
@@ -48,7 +43,6 @@ class _ScanPageState extends State<ScanPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 15),  // Espaçamento superior
               // Constrói a lista de dispositivos encontrados
               StreamBuilder<List<ScanResult>>(
                 stream: controller.scanResults,
@@ -88,7 +82,7 @@ class _ScanPageState extends State<ScanPage> {
                   }
                 },
               ),
-              SizedBox(height: 15),  // Espaçamento inferior
+              SizedBox(height: 15),  
             ],
           ),
         ),

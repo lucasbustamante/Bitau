@@ -1,5 +1,9 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
+import 'package:bitau/BLE/ble_controller.dart';
 import 'package:bitau/colors.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_blue/flutter_blue.dart';
+import 'package:get/get.dart';
 
 class WidgetNotification extends StatefulWidget {
   const WidgetNotification({Key? key}) : super(key: key);
@@ -10,6 +14,39 @@ class WidgetNotification extends StatefulWidget {
 
 class _WidgetNotificationState extends State<WidgetNotification> {
   bool close = false;
+  int rssiValue = 0;
+  String name = "";
+  late Timer periodicTimer;
+  bool popupDisplayed = false;
+
+  _checkBluetoothResults(List<ScanResult> scanResults) {
+
+    for (var result in scanResults) {
+      if (result.device.name?.toLowerCase() == 'esp32 beacon test') {
+        rssiValue = result.rssi;
+        name = result.device.name;
+      }
+    }
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    Get.put(BleController());
+
+    // Inicia o timer para verificações periódicas
+    periodicTimer = Timer.periodic(Duration(seconds: 3), (Timer timer) {
+      if (!popupDisplayed) {
+        Get.find<BleController>().scanDevices();
+      }
+    });
+
+    Get.find<BleController>().scanResults.listen((List<ScanResult> scanResults) {
+      _checkBluetoothResults(scanResults);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +77,19 @@ class _WidgetNotificationState extends State<WidgetNotification> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Flexible(
+                            FittedBox(
                               child: Text("Beacon, fazendo o futuro", style: TextStyle(
                                 fontSize: 18, color: kOrangeDarkColor, fontWeight: FontWeight.w500
                               ),),
                             ),
-                            Flexible(
-                              child: Text("Teste de distancia Beacon: ", style: TextStyle(
+                            SizedBox(height: 10),
+                            FittedBox(
+                              child: Text("Agência: $name", style: TextStyle(
+                                fontSize: 15,
+                              ),),
+                            ),
+                            FittedBox(
+                              child: Text("Distancia: $rssiValue", style: TextStyle(
                                 fontSize: 15,
                               ),),
                             ),
