@@ -1,6 +1,8 @@
 import 'package:bitau/colors.dart';
+import 'package:bitau/widgets/bottomsheet.dart';
 import 'package:bitau/widgets/containerWidgets.dart';
 import 'package:bitau/widgets/downWidget.dart';
+import 'package:bitau/widgets/popUp.dart';
 import 'package:bitau/widgets/widgetNotification.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +46,7 @@ class WidgetsPage extends StatelessWidget {
                             Text("Olá, Lucas",
                               style: TextStyle(color: Colors.white,
                                   fontWeight: FontWeight.bold, fontSize: 16
-                              ),),Text("agência 8499 conta 16924-4",
+                              ),),Text("agência ••99 conta •••24-4",
                               style: TextStyle(color: Colors.white,
                                   fontWeight: FontWeight.w500, fontSize: 14
                               ),),
@@ -53,12 +55,29 @@ class WidgetsPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Icon(Icons.keyboard_arrow_down, color: Colors.white,)
+                    IconButton(onPressed: (){
+                      showModalBottomSheet(
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Bottom_Sheet();
+                        },
+                      );
+                    }, icon: Icon(Icons.keyboard_arrow_down, color: Colors.white,))
                   ],
                 ),
                 SizedBox(height: 20),
                 ContainerWidget(title: "acessar",icon: Icons.lock_outline,),
-                WidgetNotification(),
+                GestureDetector(
+                  onTap: (){
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return MeuPopup(); // Usa o widget que criamos para o conteúdo do popup
+                      },
+                    );
+                  },
+                    child: WidgetNotification()),
                 Row(
                   children: [
                     Expanded(child: ContainerWidget(title: "Pix e transferir",icon: Icons.pix,)),

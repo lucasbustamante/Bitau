@@ -1,4 +1,6 @@
+import 'package:bitau/bankValidator.dart';
 import 'package:bitau/widgets/downWidget.dart';
+import 'package:bitau/widgetsPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -163,14 +165,24 @@ class _FirstPageState extends State<FirstPage> {
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             primary: _isAgenciaFilled && _isContaFilled ? kPrimaryColor : kDisableColor,
-                            minimumSize: Size(MediaQuery.of(context).size.width, 50), 
+                            minimumSize: Size(MediaQuery.of(context).size.width, 50),
                             shape: RoundedRectangleBorder(
                              borderRadius: BorderRadius.circular(10)
                             )
                           ),
-                          onPressed: () {
-
-                          },
+                          onPressed: _isAgenciaFilled! && _isContaFilled! ? () {
+                              if (AuthService.validateLogin(
+                                  _agenciaController.text.trim(),
+                                  _contaController.text.trim())) {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => WidgetsPage()),
+                                );
+                                print('Login válido! Navegar para a próxima página...');
+                              } else {
+                                print('Login inválido! Verifique os dados e tente novamente.');
+                              }
+                          } : null,
                           child: Text(
                             "ok",
                             style: TextStyle(
