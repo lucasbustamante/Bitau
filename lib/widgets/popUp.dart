@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:get/get.dart';
 
-class MeuPopup extends StatefulWidget {
+class MenuPopup extends StatefulWidget {
 
 
   @override
-  State<MeuPopup> createState() => _MeuPopupState();
+  State<MenuPopup> createState() => _MenuPopupState();
 }
 
-class _MeuPopupState extends State<MeuPopup> {
+class _MenuPopupState extends State<MenuPopup> {
 
   bool close = false;
   int rssiValue = 0;
@@ -100,7 +100,9 @@ class _MeuPopupState extends State<MeuPopup> {
                 onPressed: () {
                   Navigator.of(context).pop(); // Fecha o popup
                 },
-                child: Text('Fechar'),
+                child: Text('Fechar', style: TextStyle(
+                  color: kOrangeDarkColor
+                ),),
               ),
             ],
           ),
