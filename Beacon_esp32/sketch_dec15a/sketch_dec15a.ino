@@ -10,7 +10,7 @@ bool oldDeviceConnected = false;
 void setup() {
   Serial.begin(115200);
 
-  BLEDevice::init("DC3 ESP32 Beacon Test");
+  BLEDevice::init("DC3 0350 Joaquim Floriano");
   pServer = BLEDevice::createServer();
   BLEService *pService = pServer->createService(BLEUUID("4fafc201-1fb5-459e-8fcc-c5c9c331914b"));
   pCharacteristic = pService->createCharacteristic(

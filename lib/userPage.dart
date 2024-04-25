@@ -23,15 +23,18 @@ class _UserPageState extends State<UserPage> {
   DateTime? lastDetectionTime;
   late Timer periodicTimer;
   int rssiValue = 0;
-  String agencia = "";
+  String name = "";
+  String trimmedName = '';
 
   void _checkBluetoothResults(List<ScanResult> scanResults) {
     bool foundBeacon = false;
 
     for (var result in scanResults) {
-      if (result.device.name?.toLowerCase() == 'esp32 beacon test') {
+      if (result.device.name!.contains('DC3')) {
         rssiValue = result.rssi;
-        agencia = result.device.name!;
+        int endIndex = name.indexOf(' ') + 1;
+        trimmedName = name.substring(endIndex);
+        name = result.device.name;
         foundBeacon = true;
 
         if (!popupDisplayed) {

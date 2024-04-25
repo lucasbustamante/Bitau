@@ -17,16 +17,19 @@ class _MenuPopupState extends State<MenuPopup> {
 
   bool close = false;
   int rssiValue = 0;
-  String agencia = "";
+  String name = "";
+  String trimmedName = '';
   late Timer periodicTimer;
   bool popupDisplayed = false;
 
   _checkBluetoothResults(List<ScanResult> scanResults) {
 
     for (var result in scanResults) {
-      if (result.device.name?.toLowerCase() == 'esp32 beacon test') {
+      if (result.device.name!.contains('DC3')) {
         rssiValue = result.rssi;
-        agencia = result.device.name;
+        int endIndex = name.indexOf(' ') + 1;
+        trimmedName = name.substring(endIndex);
+        name = result.device.name;
       }
     }
     setState(() {});
@@ -56,7 +59,7 @@ class _MenuPopupState extends State<MenuPopup> {
       title: Text('Olá, Lucas',style: TextStyle(
         color: kOrangeDarkColor
       ),),
-      content: Text('Acabei de notar que você está na agencia $agencia',
+      content: Text('Acabei de notar que você está na agencia $trimmedName',
         style: TextStyle(
           fontSize: 15,
               color: Colors.grey.shade800
