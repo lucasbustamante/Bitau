@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bitau/BLE/ble_controller.dart';
-import 'package:bitau/colors.dart';
+import 'package:bitau/controller/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:get/get.dart';
@@ -84,6 +84,27 @@ class _MenuPopupState extends State<MenuPopup> {
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.white,
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    minimumSize: Size(MediaQuery.of(context).size.width, 50),
+                    primary: kOrangeDarkColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                    )
+                ),
+                onPressed: () {
+                },
+                child: FittedBox(
+                  child: Text(
+                    "atendimento com gerente",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),

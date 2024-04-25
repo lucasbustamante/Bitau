@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:bitau/BLE/ble_controller.dart';
-import 'package:bitau/colors.dart';
+import 'package:bitau/controller/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:get/get.dart';
@@ -18,12 +18,15 @@ class _WidgetNotificationState extends State<WidgetNotification> {
   String name = "";
   late Timer periodicTimer;
   bool popupDisplayed = false;
+  String trimmedName = '';
 
   _checkBluetoothResults(List<ScanResult> scanResults) {
 
     for (var result in scanResults) {
-      if (result.device.name?.toLowerCase() == 'esp32 beacon test') {
+      if (result.device.name!.contains('DC3')) {
         rssiValue = result.rssi;
+        int endIndex = name.indexOf(' ') + 1;
+        trimmedName = name.substring(endIndex);
         name = result.device.name;
       }
     }
@@ -84,7 +87,7 @@ class _WidgetNotificationState extends State<WidgetNotification> {
                             ),
                             SizedBox(height: 10),
                             FittedBox(
-                              child: Text("Agência: $name", style: TextStyle(
+                              child: Text("Agência: $trimmedName", style: TextStyle(
                                 fontSize: 15,
                               ),),
                             ),

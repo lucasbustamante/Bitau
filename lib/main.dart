@@ -1,8 +1,9 @@
 import 'package:bitau/BLE/beacon.dart';
-import 'package:bitau/widgetsPage.dart';
+import 'package:bitau/myIdea.dart';
+import 'package:bitau/userPage.dart';
 import 'package:flutter/material.dart';
 
-import 'first_page.dart';
+import 'loginPage.dart';
 
 void main(){
   runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WidgetsPage(),
+      home: UserPageMyIdea(),
     );
   }
 }

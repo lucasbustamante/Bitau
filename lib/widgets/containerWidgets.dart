@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../colors.dart';
+import '../controller/colors.dart';
 
 class ContainerWidget extends StatelessWidget {
   final String title;

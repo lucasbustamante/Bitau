@@ -1,5 +1,5 @@
-import 'package:bitau/colors.dart';
-import 'package:bitau/first_page.dart';
+import 'package:bitau/controller/colors.dart';
+import 'package:bitau/loginPage.dart';
 import 'package:flutter/material.dart';
 
 class Bottom_Sheet extends StatelessWidget {
@@ -115,7 +115,7 @@ class Bottom_Sheet extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => FirstPage()),
+                    MaterialPageRoute(builder: (context) => LoginPage()),
                   );
                 },
                 child: Text(
