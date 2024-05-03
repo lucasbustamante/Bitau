@@ -25,7 +25,8 @@ class _MenuPopupState extends State<MenuPopup> {
   _checkBluetoothResults(List<ScanResult> scanResults) {
 
     for (var result in scanResults) {
-      if (result.device.name!.contains('DC3')) {
+      if (result.advertisementData.serviceUuids!.contains('4fafc201-1fb5-459e-8fcc-c5c9c331914b')) {
+        print("testei ${result.advertisementData.serviceUuids}");
         rssiValue = result.rssi;
         int endIndex = name.indexOf(' ') + 1;
         trimmedName = name.substring(endIndex);

@@ -92,6 +92,18 @@
       "languageVersion": "2.15"
     },
     {
+      "name": "http",
+      "rootUri": "file:///Users/lucas/.pub-cache/hosted/pub.dev/http-0.13.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "http_parser",
+      "rootUri": "file:///Users/lucas/.pub-cache/hosted/pub.dev/http_parser-4.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "lints",
       "rootUri": "file:///Users/lucas/.pub-cache/hosted/pub.dev/lints-2.1.1",
       "packageUri": "lib/",
@@ -242,7 +254,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-04-17T21:00:19.956594Z",
+  "generated": "2024-05-02T03:40:50.055973Z",
   "generator": "pub",
   "generatorVersion": "3.2.6"
 }
