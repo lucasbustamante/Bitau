@@ -51,9 +51,17 @@ void setup() {
   EEPROM.get(bleDeviceNameAddr, bleDeviceName);
 
   // Se o nome estiver vazio, define um valor padrão
-  if (bleDeviceName.length() == 0) {
-    bleDeviceName = "MeuDispositivoBLE";
-  }
+  //if (bleDeviceName.length() == 0) {
+    //bleDeviceName = "MeuDispositivoBLE";
+  //}
+
+
+//area de teste
+if (bleDeviceName == 0xFF) {
+  bleDeviceName = "DC3 Sem nome";
+}
+
+  
 
   // Configura BLE
   NimBLEDevice::init(bleDeviceName.c_str());
