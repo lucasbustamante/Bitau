@@ -5,9 +5,9 @@
 #include <NimBLEUtils.h>
 #include <EEPROM.h>
 
-const char* ssid = "ESP32_AP";
-const char* password = "123456789";
-const int bleDeviceNameAddr = 0; // Endereço na EEPROM para armazenar o nome do dispositivo BLE
+const char* ssid = "ESP32_AP"; // nome da rede wifi
+const char* password = "123456789"; // senha da rede wifi
+const int bleDeviceNameAddr = 5; // Endereço na EEPROM para armazenar o nome do dispositivo BLE
 
 WebServer server(80);
 BLEServer *pServer = NULL;
@@ -51,17 +51,9 @@ void setup() {
   EEPROM.get(bleDeviceNameAddr, bleDeviceName);
 
   // Se o nome estiver vazio, define um valor padrão
-  //if (bleDeviceName.length() == 0) {
-    //bleDeviceName = "MeuDispositivoBLE";
-  //}
 
+    bleDeviceName = "Joaquim Floriano"; //nome inicial do BLE (nome da agência)
 
-//area de teste
-if (bleDeviceName == 0xFF) {
-  bleDeviceName = "DC3 Sem nome";
-}
-
-  
 
   // Configura BLE
   NimBLEDevice::init(bleDeviceName.c_str());
@@ -73,7 +65,13 @@ if (bleDeviceName == 0xFF) {
       NIMBLE_PROPERTY::READ | NIMBLE_PROPERTY::WRITE | NIMBLE_PROPERTY::NOTIFY
   );
   pService->start();
-  NimBLEAdvertising *pAdvertising = pServer->getAdvertising();
+  
+  // Configura o anúncio BLE
+  NimBLEAdvertising *pAdvertising = NimBLEDevice::getAdvertising();
+  pAdvertising->addServiceUUID(pService->getUUID()); // Adiciona o UUID do serviço ao anúncio
+  // Aqui você pode adicionar mais informações de anúncio, como serviceUuids
+  // Por exemplo, se você tiver vários serviços, pode adicionar seus UUIDs
+  // pAdvertising->setScanResponse(true); // Se necessário, define como resposta de varredura
   pAdvertising->start();
 
   // Configura Wi-Fi
@@ -102,7 +100,7 @@ void loop() {
   }
   
   if (deviceConnected && !oldDeviceConnected) {
-    // do stuff here on connecting
     oldDeviceConnected = deviceConnected;
   }
 }
+
