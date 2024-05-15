@@ -25,10 +25,14 @@ class _MenuPopupState extends State<MenuPopup> {
   _checkBluetoothResults(List<ScanResult> scanResults) {
 
     for (var result in scanResults) {
+      //print("testeii ${result.advertisementData.serviceUuids}");
       if (result.advertisementData.serviceUuids!.contains('4fafc201-1fb5-459e-8fcc-c5c9c331914b')) {
-        print("testei ${result.advertisementData.serviceUuids}");
+      //if (result.device.name!.contains('DC3')) {
+        print("testeii ${result.advertisementData.serviceUuids}");
         rssiValue = result.rssi;
-        int endIndex = name.indexOf(' ') + 1;
+        int endIndex = name.indexOf('') + 0;
+        ///função para apagar primeiro nome
+        //int endIndex = name.indexOf(' ') + 1;
         trimmedName = name.substring(endIndex);
         name = result.device.name;
       }
