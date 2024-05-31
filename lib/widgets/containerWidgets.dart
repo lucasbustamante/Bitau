@@ -18,7 +18,7 @@ class ContainerWidget extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: kOrangeDarkColor
+            color: kBackgroundColor
         ),
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -26,8 +26,8 @@ class ContainerWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(icon, color: Colors.white, size: 30,),
-              Text(title, style: TextStyle(color: Colors.white, fontSize: 15),)
+              Icon(icon, color: kOrangeDarkColor, size: 30,),
+              Text(title, style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.w500),)
             ],
           ),
         ),

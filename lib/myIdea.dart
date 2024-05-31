@@ -134,11 +134,7 @@ class _UserPageMyIdeaState extends State<UserPageMyIdea> {
       body: SingleChildScrollView(
         child: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.center,
-              end: Alignment.bottomCenter,
-              colors: [kPrimaryColor, kSecondaryColor],
-            ),
+              color: kBackGroundIntroPage,
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
@@ -150,13 +146,14 @@ class _UserPageMyIdeaState extends State<UserPageMyIdea> {
                     Row(
                       children: [
                         Container(
-                          width: 50,
-                          height: 50,
+                          width: 40,
+                          height: 40,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
-                          child: Center(child: Text("LB", style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500))),
+                          child: Center(child: Text("LB", style: TextStyle(fontSize: 17,
+                              color: Colors.white, fontWeight: FontWeight.w500))),
                         ),
                         SizedBox(width: 10),
                         Column(
@@ -164,11 +161,11 @@ class _UserPageMyIdeaState extends State<UserPageMyIdea> {
                           children: [
                             Text(
                               "Olá, Lucas",
-                              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                              style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
                             ),
                             Text(
                               "agência ••99 conta •••24-4",
-                              style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 14),
+                              style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 14),
                             ),
                           ],
                         ),
@@ -184,7 +181,7 @@ class _UserPageMyIdeaState extends State<UserPageMyIdea> {
                           },
                         );
                       },
-                      icon: Icon(Icons.keyboard_arrow_down, color: Colors.white),
+                      icon: Icon(Icons.keyboard_arrow_down, color: Colors.black),
                     )
                   ],
                 ),
