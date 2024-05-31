@@ -88,7 +88,7 @@ class _WidgetNotificationState extends State<WidgetNotification> {
                             ),
                             SizedBox(height: 10),
                             FittedBox(
-                              child: Text("Agência: $trimmedName", style: TextStyle(
+                              child: Text("Agência: $name", style: TextStyle(
                                 fontSize: 15,
                               ),),
                             ),

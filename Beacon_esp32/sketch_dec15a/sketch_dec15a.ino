@@ -7,7 +7,7 @@
 
 const char* ssid = "ESP32_AP"; // nome da rede wifi
 const char* password = "123456789"; // senha da rede wifi
-const int bleDeviceNameAddr = 5; // Endereço na EEPROM para armazenar o nome do dispositivo BLE
+const int bleDeviceNameAddr = 0; // Endereço na EEPROM para armazenar o nome do dispositivo BLE
 
 WebServer server(80);
 BLEServer *pServer = NULL;
@@ -34,7 +34,7 @@ void handleConfigurar() {
     // Atualiza o nome do dispositivo BLE
     NimBLEDevice::setDeviceName(bleDeviceName.c_str());
     // Armazena o nome na EEPROM
-    EEPROM.put(bleDeviceNameAddr, bleDeviceName);
+    EEPROM.writeString(bleDeviceNameAddr, bleDeviceName);
     EEPROM.commit();
   } else {
     server.send(400, "text/plain", "Requisição inválida - nome ausente");
@@ -48,12 +48,12 @@ void setup() {
   EEPROM.begin(512);
 
   // Lê o nome do dispositivo BLE da EEPROM
-  EEPROM.get(bleDeviceNameAddr, bleDeviceName);
+  bleDeviceName = EEPROM.readString(bleDeviceNameAddr);
 
   // Se o nome estiver vazio, define um valor padrão
-
-    bleDeviceName = "Joaquim Floriano"; //nome inicial do BLE (nome da agência)
-
+  if (bleDeviceName.length() == 0) {
+    bleDeviceName = "sem registro";
+  }
 
   // Configura BLE
   NimBLEDevice::init(bleDeviceName.c_str());
@@ -103,4 +103,3 @@ void loop() {
     oldDeviceConnected = deviceConnected;
   }
 }
-
