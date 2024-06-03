@@ -61,6 +61,7 @@ class _MenuPopupState extends State<MenuPopup> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: Colors.white,
       title: Text('Olá, Lucas',style: TextStyle(
         color: kOrangeDarkColor
       ),),

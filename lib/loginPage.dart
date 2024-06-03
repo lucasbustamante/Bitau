@@ -1,7 +1,6 @@
 import 'package:bitau/controller/bankValidator.dart';
-import 'package:bitau/userPage.dart';
 import 'package:bitau/widgets/downWidget.dart';
-import 'package:bitau/myIdea.dart';
+import 'package:bitau/userPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -179,7 +178,7 @@ class _LoginPageState extends State<LoginPage> {
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => UserPageMyIdea()),
+                                        builder: (context) => UserPage()),
                                   );
                                 }else{
                                   Navigator.pushReplacement(

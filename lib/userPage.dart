@@ -115,8 +115,11 @@ class _UserPageState extends State<UserPage> {
     return Scaffold(
       floatingActionButton: showFloatingButton
           ? ElevatedButton(
+
         style: ButtonStyle(
-          shape: MaterialStateProperty.all(
+            backgroundColor: MaterialStateProperty.all(Colors.white),
+
+            shape: MaterialStateProperty.all(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))
         ),
           onPressed: (){
@@ -128,13 +131,13 @@ class _UserPageState extends State<UserPage> {
             );
           },
           child: Text("Hey, vi que você está em uma agência", style: TextStyle(
-            color: kOrangeDarkColor
+            color: kOrangeDarkColor,
           ),))
           : null,
       body: SingleChildScrollView(
         child: Container(
           decoration: BoxDecoration(
-            color: kBackGroundIntroPage
+              color: kBackGroundIntroPage,
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
@@ -187,17 +190,8 @@ class _UserPageState extends State<UserPage> {
                 ),
                 SizedBox(height: 20),
                 ContainerWidget(title: "acessar", icon: Icons.lock_outline),
-                GestureDetector(
-                  onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return MenuPopup(); // Usa o widget que criamos para o conteúdo do popup
-                      },
-                    );
-                  },
-                  child: WidgetNotification(),
-                ),
+                ///Cenario para testes
+                //WidgetNotification(),
                 Row(
                   children: [
                     Expanded(child: ContainerWidget(title: "Pix e transferir", icon: Icons.pix)),
