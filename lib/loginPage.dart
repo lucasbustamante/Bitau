@@ -37,14 +37,7 @@ class _LoginPageState extends State<LoginPage> {
       body: SingleChildScrollView(
         child: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                kPrimaryColor,
-                kSecondaryColor,
-              ],
-            ),
+            color:  kItauBlueColor,
           ),
           padding: EdgeInsets.symmetric(horizontal: 20),
           height: MediaQuery.of(context).size.height,
@@ -164,7 +157,7 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(height: 20),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: _isAgenciaFilled && _isContaFilled ? kPrimaryColor : kDisableColor,
+                            primary: _isAgenciaFilled && _isContaFilled ? kItauBlueColor : kDisableColor,
                             minimumSize: Size(MediaQuery.of(context).size.width, 50),
                             shape: RoundedRectangleBorder(
                              borderRadius: BorderRadius.circular(10)

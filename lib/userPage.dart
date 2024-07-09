@@ -137,7 +137,7 @@ class _UserPageState extends State<UserPage> {
       body: SingleChildScrollView(
         child: Container(
           decoration: BoxDecoration(
-              color: kBackGroundIntroPage,
+              color: kItauBlueColor,
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
@@ -153,10 +153,10 @@ class _UserPageState extends State<UserPage> {
                           height: 40,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                           child: Center(child: Text("LB", style: TextStyle(fontSize: 17,
-                              color: Colors.white, fontWeight: FontWeight.w500))),
+                              color: Colors.black, fontWeight: FontWeight.w500))),
                         ),
                         SizedBox(width: 10),
                         Column(
@@ -164,11 +164,11 @@ class _UserPageState extends State<UserPage> {
                           children: [
                             Text(
                               "Olá, Lucas",
-                              style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
+                              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
                             ),
                             Text(
                               "agência ••99 conta •••24-4",
-                              style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 14),
+                              style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 14),
                             ),
                           ],
                         ),
@@ -184,7 +184,7 @@ class _UserPageState extends State<UserPage> {
                           },
                         );
                       },
-                      icon: Icon(Icons.keyboard_arrow_down, color: Colors.black),
+                      icon: Icon(Icons.keyboard_arrow_down, color: Colors.white),
                     )
                   ],
                 ),

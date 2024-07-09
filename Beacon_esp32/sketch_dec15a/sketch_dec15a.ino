@@ -6,7 +6,7 @@
 #include <EEPROM.h>
 
 const char* ssid = "ESP32_AP"; // nome da rede wifi
-const char* password = "123456789"; // senha da rede wifi
+const char* password = "12345678"; // senha da rede wifi
 const int bleDeviceNameAddr = 0; // Endereço na EEPROM para armazenar o nome do dispositivo BLE
 
 WebServer server(80);

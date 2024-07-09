@@ -106,7 +106,7 @@ class Bottom_Sheet extends StatelessWidget {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     minimumSize: Size(MediaQuery.of(context).size.width, 50),
-                    primary: kOrangeDarkColor,
+                    primary: kItauBlueColor,
                     shape: RoundedRectangleBorder(
 
                         borderRadius: BorderRadius.circular(10)
