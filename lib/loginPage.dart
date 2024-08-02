@@ -140,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
                         Row(
                           children: [
                             Switch(
-                              activeTrackColor: kPrimaryColor,
+                              activeTrackColor: kItauBlueColor,
                               inactiveTrackColor: kDisableColor,
                               inactiveThumbColor: Colors.white,
                               value: _isSwitched,

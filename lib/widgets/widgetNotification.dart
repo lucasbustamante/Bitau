@@ -82,7 +82,7 @@ class _WidgetNotificationState extends State<WidgetNotification> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             FittedBox(
-                              child: Text("Beacon, fazendo o futuro", style: TextStyle(
+                              child: Text("Beacon, área de testes", style: TextStyle(
                                 fontSize: 18, color: kOrangeDarkColor, fontWeight: FontWeight.w500
                               ),),
                             ),

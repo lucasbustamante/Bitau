@@ -30,9 +30,12 @@ class _UserPageState extends State<UserPage> {
     bool foundBeacon = false;
 
     for (var result in scanResults) {
-      if (result.advertisementData.serviceUuids!.contains('4fafc201-1fb5-459e-8fcc-c5c9c331914b')) {
+      if (result.advertisementData.serviceUuids!.contains(
+          '4fafc201-1fb5-459e-8fcc-c5c9c331914b')) {
         //if (result.device.name!.contains('DC3')) {
         rssiValue = result.rssi;
+        //define distancia de atuação do beacon
+        if (rssiValue >= -50) {
         int endIndex = name.indexOf(' ') + 1;
         trimmedName = name.substring(endIndex);
         name = result.device.name;
@@ -42,7 +45,8 @@ class _UserPageState extends State<UserPage> {
           setState(() {
             showFloatingButton = true;
             popupDisplayed = true;
-            lastDetectionTime = DateTime.now(); // Atualiza o momento da última detecção
+            lastDetectionTime =
+                DateTime.now(); // Atualiza o momento da última detecção
           });
 
           showDialog(
@@ -57,13 +61,14 @@ class _UserPageState extends State<UserPage> {
           setState(() {
             showFloatingButton = true;
 
-            lastDetectionTime = DateTime.now(); // Atualiza o momento da última detecção
+            lastDetectionTime =
+                DateTime.now(); // Atualiza o momento da última detecção
           });
-
         }
 
         break; // Encontrou o beacon, para a busca
       }
+    }
     }
 
     // Verifica se o beacon foi perdido e mais de 10 segundos se passaram desde a última detecção
@@ -131,7 +136,7 @@ class _UserPageState extends State<UserPage> {
             );
           },
           child: Text("Hey, vi que você está em uma agência", style: TextStyle(
-            color: kOrangeDarkColor,
+            color: kItauBlueColor,
           ),))
           : null,
       body: SingleChildScrollView(
@@ -191,7 +196,7 @@ class _UserPageState extends State<UserPage> {
                 SizedBox(height: 20),
                 ContainerWidget(title: "acessar", icon: Icons.lock_outline),
                 ///Cenario para testes
-                //WidgetNotification(),
+                WidgetNotification(),
                 Row(
                   children: [
                     Expanded(child: ContainerWidget(title: "Pix e transferir", icon: Icons.pix)),

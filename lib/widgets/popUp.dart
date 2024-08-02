@@ -28,7 +28,6 @@ class _MenuPopupState extends State<MenuPopup> {
       //print("testeii ${result.advertisementData.serviceUuids}");
       if (result.advertisementData.serviceUuids!.contains('4fafc201-1fb5-459e-8fcc-c5c9c331914b')) {
       //if (result.device.name!.contains('DC3')) {
-        print("testeii ${result.advertisementData.serviceUuids}");
         rssiValue = result.rssi;
         int endIndex = name.indexOf('') + 0;
         ///função para apagar primeiro nome
@@ -63,7 +62,7 @@ class _MenuPopupState extends State<MenuPopup> {
     return AlertDialog(
       backgroundColor: Colors.white,
       title: Text('Olá, Lucas',style: TextStyle(
-        color: kOrangeDarkColor
+        color: kItauBlueColor
       ),),
       content: Text('Acabei de notar que você está na agencia $trimmedName',
         style: TextStyle(
@@ -80,7 +79,7 @@ class _MenuPopupState extends State<MenuPopup> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     minimumSize: Size(MediaQuery.of(context).size.width, 50),
-                    primary: kOrangeDarkColor,
+                    primary: kItauBlueColor,
                     shape: RoundedRectangleBorder(
 
                         borderRadius: BorderRadius.circular(10)
@@ -100,7 +99,7 @@ class _MenuPopupState extends State<MenuPopup> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     minimumSize: Size(MediaQuery.of(context).size.width, 50),
-                    primary: kOrangeDarkColor,
+                    primary: kItauBlueColor,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)
                     )
@@ -131,7 +130,7 @@ class _MenuPopupState extends State<MenuPopup> {
                   Navigator.of(context).pop(); // Fecha o popup
                 },
                 child: Text('Fechar', style: TextStyle(
-                  color: kOrangeDarkColor
+                  color: kItauBlueColor
                 ),),
               ),
             ],
