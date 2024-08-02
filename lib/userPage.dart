@@ -31,14 +31,11 @@ class _UserPageState extends State<UserPage> {
 
     for (var result in scanResults) {
       if (result.advertisementData.serviceUuids!.contains(
-          '4fafc201-1fb5-459e-8fcc-c5c9c331914b')) {
-        //if (result.device.name!.contains('DC3')) {
+          '4fafc201-1fb5-459e-8fcc-c5c9c331914b') ) {
         rssiValue = result.rssi;
-        //define distancia de atuação do beacon
-        if (rssiValue >= -50) {
-        int endIndex = name.indexOf(' ') + 1;
-        trimmedName = name.substring(endIndex);
         name = result.device.name;
+        //define distancia de atuação do beacon
+        if (rssiValue >= -50 && name != "Sem registro") {
         foundBeacon = true;
 
         if (!popupDisplayed) {
