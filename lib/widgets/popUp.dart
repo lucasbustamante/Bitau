@@ -26,6 +26,7 @@ class _MenuPopupState extends State<MenuPopup> {
   bool popupDisplayed = false;
   bool showButtons = true;
   String displayedPassword = '';
+  bool notificationShown = false; // Track notification status
 
   @override
   void initState() {
@@ -33,7 +34,7 @@ class _MenuPopupState extends State<MenuPopup> {
 
     // Initialize notifications settings
     const AndroidInitializationSettings initializationSettingsAndroid =
-    AndroidInitializationSettings('@mipmap/ic_launcher');
+    AndroidInitializationSettings('assets/itau.png');
     const InitializationSettings initializationSettings =
     InitializationSettings(android: initializationSettingsAndroid);
 
@@ -72,12 +73,15 @@ class _MenuPopupState extends State<MenuPopup> {
           .contains('4fafc201-1fb5-459e-8fcc-c5c9c331914b')) {
         rssiValue = result.rssi;
         name = result.device.name;
-        int endIndex = name.indexOf('') + 0;
+        int endIndex = name.indexOf('') + 0; // Ensure this logic is correct
         trimmedName = name.substring(endIndex);
 
-        // Show notification when beacon is found
-        _showNotification('Beacon detected',
-            'Você está próximo da agência $trimmedName');
+        // Show notification when beacon is found and not already shown
+        if (!notificationShown) {
+          _showNotification('Hey!',
+              'Vi que você está em uma agência $trimmedName');
+          notificationShown = true; // Mark notification as shown
+        }
       }
     }
     setState(() {});
@@ -112,6 +116,7 @@ class _MenuPopupState extends State<MenuPopup> {
   @override
   void dispose() {
     periodicTimer.cancel(); // Cancel the timer when the widget is disposed
+    notificationShown = false; // Reset the notification status if needed
     super.dispose();
   }
 
