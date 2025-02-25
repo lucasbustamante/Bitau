@@ -58,3 +58,17 @@
 .flutter-plugins-dependencies
 .dart_tool/flutter_build/a593420d192cdecc2969e961691b9a1c/.filecache
 .dart_tool/flutter_build/a593420d192cdecc2969e961691b9a1c/app.dill
+.dart_tool/flutter_build/a593420d192cdecc2969e961691b9a1c/.filecache
+.dart_tool/flutter_build/a593420d192cdecc2969e961691b9a1c/app.dill
+.dart_tool/flutter_build/a593420d192cdecc2969e961691b9a1c/debug_android_application.stamp
+.dart_tool/flutter_build/a593420d192cdecc2969e961691b9a1c/flutter_assets.d
+.dart_tool/flutter_build/a593420d192cdecc2969e961691b9a1c/gen_dart_plugin_registrant.stamp
+.dart_tool/flutter_build/a593420d192cdecc2969e961691b9a1c/kernel_snapshot.d
+.dart_tool/flutter_build/a593420d192cdecc2969e961691b9a1c/kernel_snapshot.stamp
+.dart_tool/flutter_build/a593420d192cdecc2969e961691b9a1c/outputs.json
+.dart_tool/package_config.json
+.dart_tool/package_config_subset
+.DS_Store
+.flutter-plugins
+.flutter-plugins-dependencies
+.idea/libraries/Flutter_Plugins.xml
