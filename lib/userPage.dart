@@ -35,7 +35,7 @@ class _UserPageState extends State<UserPage> {
         rssiValue = result.rssi;
         name = result.device.name;
         //define distancia de atuação do beacon
-        if (rssiValue >= -50 && name != "Sem registro") {
+        if (rssiValue >= -60 && name != "Sem registro") {
         foundBeacon = true;
 
         if (!popupDisplayed) {
